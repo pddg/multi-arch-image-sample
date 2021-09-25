@@ -68,8 +68,10 @@ jobs:
               ${{ env.IMAGE }}:${GITHUB_SHA}-amd64 \
               ${{ env.IMAGE }}:${GITHUB_SHA}-armv7 \
               ${{ env.IMAGE }}:${GITHUB_SHA}-arm64
+          docker manifest push ${{ env.IMAGE }}:${GITHUB_SHA}
           docker manifest create ${{ env.IMAGE }}:latest \
               ${{ env.IMAGE }}:${GITHUB_SHA}-amd64 \
               ${{ env.IMAGE }}:${GITHUB_SHA}-armv7 \
               ${{ env.IMAGE }}:${GITHUB_SHA}-arm64
+          docker manifest push ${{ env.IMAGE }}:latest
 
